@@ -1,4 +1,7 @@
 import json
+import os
+import subprocess
+import sys
 from pathlib import Path
 
 from cnppt_kit.cli import main
@@ -44,3 +47,26 @@ def test_cli_lint_strict_fails_on_overflow_title(tmp_path: Path):
         encoding="utf-8",
     )
     assert main(["lint", str(bad_md), "--strict"]) == 1
+
+
+def test_cli_build_succeeds_under_cp1252_console_encoding(tmp_path: Path):
+    env = os.environ.copy()
+    env["PYTHONIOENCODING"] = "cp1252"
+    env["PYTHONPATH"] = str(ROOT / "src")
+    out_pptx = tmp_path / "cp1252.pptx"
+    proc = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "cnppt_kit.cli",
+            "build",
+            str(ROOT / "examples" / "defense_outline.md"),
+            "-o",
+            str(out_pptx),
+        ],
+        env=env,
+        capture_output=True,
+        check=False,
+    )
+    assert proc.returncode == 0, proc.stderr.decode("utf-8", errors="replace")
+    assert out_pptx.exists()

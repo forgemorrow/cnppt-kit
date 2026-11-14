@@ -80,7 +80,7 @@ cnppt build examples/defense_outline.md -o defense.pptx --html defense.html
 
 在最后一次提交代码后实测运行结果：
 
-* **自动化测试（`pytest -v`）**：**`10 passed in 0.51s`** — 覆盖 Markdown/JSON 解析、汉字视觉宽度算法、CJK 溢出体检、离线 HTML 无外链校验（`0` 外部 `http/https` 依赖）、CLI 退出码，以及使用 `python-pptx` 重新打开生成的 `.pptx` 检查原生表格、演讲备注与 `<a:ea typeface="Microsoft YaHei"/>` XML 节点。
+* **自动化测试（`pytest -v`）**：**`11 passed in 0.77s`** — 覆盖 Markdown/JSON 解析、汉字视觉宽度算法、CJK 溢出体检、离线 HTML 无外链校验（`0` 外部 `http/https` 依赖）、Windows `cp1252` 控制台 UTF-8 编码自动兼容、CLI 退出码，以及使用 `python-pptx` 重新打开生成的 `.pptx` 检查原生表格、演讲备注与 `<a:ea typeface="Microsoft YaHei"/>` XML 节点。
 * **CJK 排版体检与编译耗时基准评测（`python scripts/benchmark_linter.py`）**：在 12 组正负标签演示文稿样本（6 类典型过长标题/文字墙/过多卡片/宽表/非安全字体缺陷 vs 6 组含三大国内示例的规范文稿）上实测：
 
 ```text

@@ -74,7 +74,7 @@ To attach as a reusable **Agent Skill** in DeepSeek Harness, Cursor, Claude Code
 
 Running `pytest -v` and `python scripts/benchmark_linter.py`:
 
-* **Test Suite (`pytest`)**: `10 passed in 0.51s` — validates Markdown/JSON IR parsing, CJK width metrics, linter rules, offline HTML preview (`0` external `http://`/`https://` assets), CLI exit codes, and reloaded `.pptx` inspection verifying native tables, speaker notes, and `<a:ea typeface="Microsoft YaHei"/>` XML elements.
+* **Test Suite (`pytest`)**: `11 passed in 0.77s` — validates Markdown/JSON IR parsing, CJK width metrics, linter rules, offline HTML preview (`0` external `http://`/`https://` assets), Windows `cp1252` console UTF-8 reconfiguration, CLI exit codes, and reloaded `.pptx` inspection verifying native tables, speaker notes, and `<a:ea typeface="Microsoft YaHei"/>` XML elements.
 * **CJK Linter & Compiler Benchmark** (12 labeled test decks across 6 defective layouts + 6 well-proportioned Chinese decks):
 
 ```text
