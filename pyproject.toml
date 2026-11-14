@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cnppt-kit"
+version = "0.1.0"
+description = "China-ready Markdown/JSON to native WPS & PowerPoint (.pptx) compiler, CJK typography linter, and Agent Skill distilled from high-star open-source presentation engines."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "forgemorrow" }]
+keywords = [
+  "ppt",
+  "pptx",
+  "wps",
+  "presentation",
+  "chinese",
+  "cjk",
+  "ai-ppt",
+  "agent-skill",
+  "markdown",
+]
+dependencies = [
+  "python-pptx>=1.0.2",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.0",
+]
+
+[project.scripts]
+cnppt = "cnppt_kit.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
